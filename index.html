@@ -261,7 +261,12 @@ nearby predators. Likewise, with parameter tuning, the radius of the predator de
 
 
 <h2 align="middle">Part 6: Fish + Predator Meshes and Textures</h2>
-<p>Both fish and predators are composed of triangle meshes. Each triangle vertex in the mesh is assigned a uv coordinate of (0, 0), (1, 0), or (0, 1). For this project, we have decided to use the shaders
+<p>
+  Both fish and predators are composed of triangle meshes. This was difficult as we were unfamiliar with OpenGL, but the actual meshes consist of two base-to-base 16 sided pyramids (representing the head and body), and the tip of one of the 16-sided pyramids connected with a 4-sided pyramid (representing the tail).
+  This was created in a local coordinate system and required a scaling and rotation matrix to transform it into the space of the fish simulator to give the fish it's thin look along the x-axis and to orient the fish to face forward in accordance with its velocity; this also included a translation as well to the position of the fish.
+  
+  
+  Each triangle vertex in the mesh is also assigned a uv coordinate of (0, 0), (1, 0), (0, 1), or (1, 1) to fit desired scale pattern for the fish or stone pattern for the pillars (custom obstacle built). For this project, we have decided to use the shaders
   that were implemented for the clothsim to apply textures to both the fish and predators. The shaders are also used to create a sand floor in the simulated aquarium and object textures. 
 </p>
 <div align="middle">
