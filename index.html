@@ -78,7 +78,7 @@
 <h3 align="middle">Part 1.1: Alignment</h3>
 <p>A fish in a school usually moves at a similar velocity as its neighbors. We implement this by altering the velocity vector of a fish based on its neighbors. This is done by taking the weighted average of the neighboring fish by first multiplying the neighboring fish's velocity vector by a weight that drops off with distance, that being
   $$ w = 1 - \frac{r}{R} $$
-  This weight has the effectiveness of an individual neighboring fish's contribution drop off by distance linearly. We had experimented with different drop off rates including quadratic, logarithmic, and exponential, but found the linear approach to be the most effective (and simplest).
+  Where r is the distance between a fish and its neighbor, and R is the radius of detection for neighbors for Alignment. This weight has the effectiveness of an individual neighboring fish's contribution drop off by distance linearly. We had experimented with different drop off rates including quadratic, logarithmic, and exponential, but found the linear approach to be the most effective (and simplest).
   This weight being applied for alignment of the neighboring fish is used for cohesion and separation as well. Our implementation uses a 2D vector called <span style="font-family: monospace;">alignment</span> to control how this behavior is implemented.
   The first component is the detection radius, which is used to limit the neighboring fish to be within <span style="font-family: monospace;">alignment.x</span> of a fish for alignment calculation. The second component is used to scale the 
   alignment itself, that is to say how strong the alignment should be. 
